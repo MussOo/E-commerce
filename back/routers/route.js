@@ -60,3 +60,18 @@ router.delete("/category/:id", auth, admin, CategoryControler.delete);
 
 module.exports = router;
 
+
+//////////////////// Order Controllers ////////////////////
+
+const OrderControler = require("../controllers/OrderControler");
+
+router.get("/orders", auth, OrderControler.orders);
+
+router.get("/order/:id", auth, OrderControler.order);
+
+router.post("/order", auth, OrderControler.create);
+
+router.put("/order/:id", auth, OrderControler.update);
+
+router.delete("/order/:id", auth, OrderControler.delete);
+
