@@ -1,4 +1,4 @@
-
+const Category = require("../models/Category");
 
 module.exports.categories = async (req, res) => {
     Category.find({}, {}, function (err, docs) {
