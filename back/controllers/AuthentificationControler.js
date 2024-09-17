@@ -10,7 +10,7 @@ module.exports.login = async (req, res) => {
         return res.status(401).json({ error: "Utilisateur non trouvé !" });
       }
       bcrypt
-        .compare(data.mdp, user.mdp)
+        .compare(data.password, user.password)
         .then((valid) => {
           if (!valid) {
             return res
@@ -31,13 +31,14 @@ module.exports.login = async (req, res) => {
 
 module.exports.register = async (req, res) => {
   let data = req.body;
+  let password_unhashed = data.password;
   const user = new User({
-    email: data.email,
+    ...data,
   });
   bcrypt
-    .hash(data.mdp, 10)
+    .hash(password_unhashed, 10)
     .then((hash) => {
-      user.mdp = hash;
+      user.password = hash;
       user
         .save()
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
@@ -54,8 +55,4 @@ module.exports.users = async (req, res) => {
 module.exports.logout = async (req, res) => {
   // delete token from database
   res.status(200).json(req.auth);
-};
-
-module.exports.me = async (req, res) => {
-  res.status(200).json({ message: "me" });
 };
