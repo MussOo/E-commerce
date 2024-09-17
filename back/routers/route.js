@@ -1,6 +1,6 @@
 const { Router } = require("express");
 
-const auth = require("../middleware/auth");
+const {auth, admin} = require("../middleware/auth");
 
 const router = Router();
 
@@ -13,7 +13,17 @@ router.post("/login", AuthentificationControler.login);
 
 router.post("/logout", auth, AuthentificationControler.logout);
 
-router.get("/users", auth, AuthentificationControler.users);
+//////////////////// Product Controllers ////////////////////
+const ProductControler = require("../controllers/ProductControler");
 
+router.get("/products", ProductControler.products);
+
+router.get("/product/:id", ProductControler.product);
+
+router.post("/product", auth, admin, ProductControler.create);
+
+router.put("/product/:id", auth, admin, ProductControler.update);
+
+router.delete("/product/:id", auth, admin, ProductControler.delete);
 
 module.exports = router;
