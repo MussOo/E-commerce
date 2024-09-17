@@ -27,3 +27,19 @@ router.put("/product/:id", auth, admin, ProductControler.update);
 router.delete("/product/:id", auth, admin, ProductControler.delete);
 
 module.exports = router;
+
+
+//////////////////// User Controllers ////////////////////
+
+const UserControler = require("../controllers/UserControler");
+
+router.get("/users", auth, admin, UserControler.users);
+
+router.get("/user/:id", auth, UserControler.user);
+
+router.put("/user/:id", auth, UserControler.update);
+
+router.delete("/user/:id", auth, UserControler.delete);
+
+module.exports = router;
+

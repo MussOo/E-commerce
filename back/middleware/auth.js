@@ -18,7 +18,6 @@ auth = (req, res, next) => {
 
 
 user = (req, res, next) => {
-  console.log("user IEIHDZOHUA");
   try {
     const token = req.headers.authorization.split(" ")[1];
     const decodedToken = jwt.verify(token, "RANDOM_TOKEN_SECRET");
