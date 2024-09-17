@@ -43,3 +43,20 @@ router.delete("/user/:id", auth, UserControler.delete);
 
 module.exports = router;
 
+
+//////////////////// category Controllers ////////////////////
+
+const CategoryControler = require("../controllers/CategoryControler");
+
+router.get("/categories", CategoryControler.categories);
+
+router.get("/category/:id", CategoryControler.category);
+
+router.post("/category", auth, admin, CategoryControler.create);
+
+router.put("/category/:id", auth, admin, CategoryControler.update);
+
+router.delete("/category/:id", auth, admin, CategoryControler.delete);
+
+module.exports = router;
+
