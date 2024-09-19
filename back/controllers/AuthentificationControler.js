@@ -22,6 +22,12 @@ module.exports.login = async (req, res) => {
             token: jwt.sign({ userId: user._id, role: user.role }, "RANDOM_TOKEN_SECRET", {
               expiresIn: "24h",
             }),
+            user: {
+              name: user.name,
+              email: user.email,
+              role: user.role,
+              address : user.address
+            }
           });
         })
         .catch((error) => res.status(401).json({ error }));

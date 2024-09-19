@@ -1,9 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cors = require('cors');
 
 const Route = require("./routers/route");
 
 const app = express();
+// Utiliser le middleware cors pour permettre les requêtes cross-origin
+app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
