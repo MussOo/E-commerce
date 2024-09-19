@@ -4,27 +4,29 @@ import Register from "../components/authentification/register/Register";
 import { createBrowserRouter } from "react-router-dom";
 import RequireAuth from "../hooks/RequireAuth";
 
-const router = createBrowserRouter([
+export default createBrowserRouter([
   {
     path: "/",
     exact: true,
     index: true,
-    element: Accueil,
+    element: <Accueil />,
     loader: RequireAuth,
   },
   {
     path: "register",
-    element: Register,
+    element: <Register />,
   },
   {
     path: "login",
     element: <Login />,
     action: async ({ request }) => {
-      console.log("LoginAction");
-      const data = await request.formData();
-      console.log(request, data);
+      console.log(request.formData());
+      return request;
     },
   },
+  {
+    path: "admin",
+    element: <div>Admin</div>,
+    loader: RequireAuth,
+  }
 ]);
-
-export default router;
