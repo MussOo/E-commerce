@@ -4,20 +4,21 @@ import React from "react";
 import { login } from "../../../api/Login";
 
 export default function Login() {
-  const LoginAction = (e) => {
-    e.preventDefault();
-    const elements = e.target.elements;
-    let email = elements.email.value;
-    let password = elements.password.value;
-  };
 
+  const Submit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    login(email, password);
+  }
+  
   return (
     <div className="main">
-      <div className="container_login">
+      <div className="container_login text-black">
         <h3>Login</h3>
-        <Form method="post">
-          <input type="text" name="email" placeholder="email" />
-          <input type="password" name="password" placeholder="password" />
+        <Form method="post" onSubmit={Submit}>
+          <input type="text" name="email" value={'root@root.com'} placeholder="email" />
+          <input type="password" name="password" value={'root'} placeholder="password" />
           <button type="submit" className="login_button">
             Login
           </button>

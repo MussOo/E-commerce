@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 export default function Navbar() {
@@ -24,6 +25,17 @@ export default function Navbar() {
                         <a href="#" className="block py-2 px-3 md:p-0 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 md:dark:text-white">Produits</a>
                     </li>
                 </ul>
+            </div>
+            <div>
+                <a className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
+                    <Link
+                        to="/login"
+                        className="block w-full h-full"
+                    >
+                    CONNEXION
+                    </Link>
+
+                </a>
             </div>
         </div>
         </nav>
