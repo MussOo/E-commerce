@@ -13,7 +13,14 @@ const categorySchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  products: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Product',
+      required: false
+    }
+  ]
 });
 
 const Category = mongoose.model('Category', categorySchema);
