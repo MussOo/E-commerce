@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
+import { AuthContext } from '../context/contextAuth.jsx';
+import { useContext } from "react";
 
 
 export default function Navbar() {
+    const { user, context_login , context_logout } = useContext(AuthContext);
 
+    console.log('user', user);
     return (
         <nav className="w-11/12 rounded-lg border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -27,7 +31,14 @@ export default function Navbar() {
                 </ul>
             </div>
             <div>
-                <a className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
+
+                {
+                    user ? (
+                        <button onClick={() => {context_logout()}} className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-red-600 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
+                        DECONNEXION
+                        </button>
+                    ) : (
+                        <a className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
                     <Link
                         to="/login"
                         className="block w-full h-full"
@@ -36,6 +47,8 @@ export default function Navbar() {
                     </Link>
 
                 </a>
+                    )
+                }
             </div>
         </div>
         </nav>
