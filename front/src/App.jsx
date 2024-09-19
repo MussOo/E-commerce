@@ -5,8 +5,10 @@ import Register from "./components/authentification/register/Register";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./components/MainLayout";
 import NewProduct from "./components/products/newProduct";
-
+import NewCategory from "./components/category/newCategory";
 export default function App() {
+
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -20,7 +22,7 @@ export default function App() {
     },
     {
       path: "login",
-      element: <Login />
+      element: <Login />,
     },
     {
       path : "products",
@@ -32,6 +34,15 @@ export default function App() {
         {
           path: 'add',
           element: <MainLayout><NewProduct/></MainLayout>
+        }
+      ]
+    },
+    {
+      path : "categorys",
+      children : [
+        {
+          path: 'add',
+          element: <MainLayout><NewCategory/></MainLayout>
         }
       ]
     }
