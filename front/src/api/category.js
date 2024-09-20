@@ -58,24 +58,10 @@ export async function create(name, description){
 
 }
 
-
-
 export async function getAll() {
   return await axios
-    .get("http://localhost:3000/category")
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      Swal.fire({
-        title: "Erreur",
-        text: "Une erreur est survenue",
-        icon: "error",
-        timer: 2000,
-      });
-    });
+    .get("http://localhost:3000/category");
 }
-
 
 export async function getOne(id) {
   return await axios
