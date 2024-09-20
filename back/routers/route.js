@@ -16,7 +16,7 @@ router.post("/logout", auth, AuthentificationControler.logout);
 //////////////////// Product Controllers ////////////////////
 const ProductControler = require("../controllers/ProductControler");
 
-router.get("/products", ProductControler.products);
+router.get("/product", ProductControler.products);
 
 router.get("/product/:id", ProductControler.product);
 
@@ -33,7 +33,7 @@ module.exports = router;
 
 const UserControler = require("../controllers/UserControler");
 
-router.get("/users", auth, admin, UserControler.users);
+router.get("/user", auth, admin, UserControler.users);
 
 router.get("/user/:id", auth, UserControler.user);
 
@@ -48,7 +48,7 @@ module.exports = router;
 
 const CategoryControler = require("../controllers/CategoryControler");
 
-router.get("/categories", CategoryControler.categories);
+router.get("/category", CategoryControler.categories);
 
 router.get("/category/:id", CategoryControler.category);
 
@@ -65,7 +65,7 @@ module.exports = router;
 
 const OrderControler = require("../controllers/OrderControler");
 
-router.get("/orders", auth, OrderControler.orders);
+router.get("/order", auth, OrderControler.orders);
 
 router.get("/order/:id", auth, OrderControler.order);
 
