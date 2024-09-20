@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./components/MainLayout";
 import NewProduct from "./components/products/newProduct";
 import NewCategory from "./components/category/newCategory";
+import ListProduct from "./components/products/listProduct";
 export default function App() {
 
 
@@ -29,7 +30,7 @@ export default function App() {
       children : [ 
         {
           path: "",
-          element: <MainLayout><div>LIST PRODUCTS</div></MainLayout>,
+          element: <MainLayout><ListProduct/></MainLayout>,
         },
         {
           path: 'add',

@@ -1,4 +1,6 @@
+const { ObjectId } = require("mongodb");
 const Product = require("../models/Product");
+const { ObjectID } = require("bson");
 
 module.exports.products = async (req, res) => {
   Product.find({}, {}, function (err, docs) {
@@ -16,6 +18,7 @@ module.exports.create = async (req, res) => {
   let data = req.body;
   const product = new Product({
     ...data,
+    category : ObjectID(data.category)
   });
   product
     .save()

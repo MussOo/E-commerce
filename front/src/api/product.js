@@ -26,7 +26,7 @@ export async function create(
     }
 )
     .then(() => {
-        window.location.href = "/";
+        window.location.href = "/products";
     })
     .catch(() => {
         Swal.fire({
@@ -43,18 +43,7 @@ export async function create(
 
 export async function getAll() {
     return await axios
-    .get("http://localhost:3000/product")
-    .then((response) => {
-        return response.data;
-    })
-    .catch(() => {
-        Swal.fire({
-            title: "Erreur",
-            text: "Une erreur est survenue",
-            icon: "error",
-            timer: 2000,
-        });
-    });
+    .get("http://localhost:3000/product");
 }
 
 export async function getOne(id) {
