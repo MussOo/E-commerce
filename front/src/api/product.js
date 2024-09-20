@@ -48,18 +48,7 @@ export async function getAll() {
 
 export async function getOne(id) {
     return await axios
-    .get(`http://localhost:3000/product/${id}`)
-    .then((response) => {
-        return response.data;
-    })
-    .catch(() => {
-        Swal.fire({
-            title: "Erreur",
-            text: "Une erreur est survenue",
-            icon: "error",
-            timer: 2000,
-        });
-    });
+    .get(`http://localhost:3000/product/${id}`);
 }
 
 export async function update(
@@ -88,7 +77,15 @@ export async function update(
         }
     )
     .then(() => {
-        window.location.href = "/";
+        Swal.fire({
+            title: "Produit modifié",
+            icon: "success",
+            timer: 1000,
+        })
+        .then(() => {
+            window.location.href = "/products";
+        });
+        
     })
     .catch(() => {
         Swal.fire({
@@ -114,7 +111,14 @@ export async function remove(id) {
         }
     )
     .then(() => {
-        window.location.href = "/";
+        Swal.fire({
+            title: "Produit supprimé",
+            icon: "success",
+            timer: 1000,
+        })
+        .then(() => {
+            window.location.href = "/products";
+        });
     })
     .catch(() => {
         Swal.fire({

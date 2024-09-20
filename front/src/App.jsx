@@ -7,6 +7,7 @@ import MainLayout from "./components/MainLayout";
 import NewProduct from "./components/products/newProduct";
 import NewCategory from "./components/category/newCategory";
 import ListProduct from "./components/products/listProduct";
+import EditProduct from "./components/products/editProduct";
 export default function App() {
 
 
@@ -35,6 +36,10 @@ export default function App() {
         {
           path: 'add',
           element: <MainLayout><NewProduct/></MainLayout>
+        },
+        {
+          path: 'edit/:id',
+          element: <MainLayout><EditProduct/></MainLayout>
         }
       ]
     },

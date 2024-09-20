@@ -1,6 +1,8 @@
+import { remove } from "../api/product";
 
 
 export default function CardProducts({ product }) {
+
 
     return (
       <div className="flex flex-col justify- rounded-lg border w-1/4 border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
@@ -150,6 +152,25 @@ export default function CardProducts({ product }) {
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
             </svg>
             Add to cart
+          </button>
+        </div>
+        
+        <div className="flex flex-row justify-end">
+              <a
+              className=" text-white text-sm font-bold py-2 px-4 rounded-lg"
+              onClick={() => {remove(product._id)}}
+              >
+                <img src="https://img.icons8.com/?size=25&id=102350&format=png&color=000000" alt="" />
+              </a>
+
+          <button 
+              className=" text-white text-sm font-bold  rounded-lg"
+              >
+              <a
+              href={`/products/edit/${product._id}`}
+              >
+                <img src="https://img.icons8.com/?size=25&id=71201&format=png&color=000000" alt="" />
+              </a>
           </button>
         </div>
       </div>
