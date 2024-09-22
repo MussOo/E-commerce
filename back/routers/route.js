@@ -28,6 +28,11 @@ router.delete("/product/:id", auth, admin, ProductControler.delete);
 
 module.exports = router;
 
+// check stock 
+
+router.post("/product/stock/:id", ProductControler.stock);
+
+
 
 //////////////////// User Controllers ////////////////////
 
@@ -74,4 +79,5 @@ router.post("/order", auth, OrderControler.create);
 router.put("/order/:id", auth, OrderControler.update);
 
 router.delete("/order/:id", auth, OrderControler.delete);
+
 
