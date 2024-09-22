@@ -20,7 +20,6 @@ const AuthProvider = ({ children }) => {
 
   // Fonction de login (à appeler après authentification réussie)
   const context_login = (token, userData) => {
-    console.log('context_login', userData);
     setUser(userData);
     setToken(token);
     localStorage.setItem('token', token);

@@ -8,6 +8,7 @@ import NewProduct from "./components/products/newProduct";
 import NewCategory from "./components/category/newCategory";
 import ListProduct from "./components/products/listProduct";
 import EditProduct from "./components/products/editProduct";
+import Cart from './components/cart/Cart';
 export default function App() {
 
 
@@ -51,6 +52,11 @@ export default function App() {
           element: <MainLayout><NewCategory/></MainLayout>
         }
       ]
+    },
+    {
+      path: "cart",
+      element: <MainLayout><Cart/></MainLayout>,
+
     }
   ]);
 

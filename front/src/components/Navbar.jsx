@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { AuthContext } from '../context/contextAuth.jsx';
+import { CartContext } from '../context/contextCart.jsx';
 import { useContext } from "react";
 
 
 export default function Navbar() {
     const { user, context_login , context_logout } = useContext(AuthContext);
+    const { cart } = useContext(CartContext);
 
     console.log('user', user);
     return (
@@ -42,15 +44,22 @@ export default function Navbar() {
                     </li>
                 </ul>
             </div>
-            <div>
-
+            <div className="flex flex-row space-x-4 items-center">
+                <div className="relative inline-block text-left">
+                    <Link to={'/cart'} className="block w-16 h-16 relative">
+                    <img src="https://img.icons8.com/?size=100&id=59997&format=png&color=000000" alt="" className="w-16 h-16 rounded-full" />
+                    </Link>
+                    <div className="absolute bottom-0 right-0 block w-8 h-8 bg-green-400 border-2 border-white rounded-full text-black text-center font-bold">
+                    {cart ? cart.length : "0"}
+                    </div>
+                </div>
                 {
                     user ? (
-                        <button onClick={() => {context_logout()}} className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-red-600 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
+                        <button onClick={() => {context_logout()}} className="h-8 m-0 inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-red-600 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
                         DECONNEXION
                         </button>
                     ) : (
-                        <a className="inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
+                        <a className=" h-8 inline-flex items-center justify-center px-4 py-2 text-xs font-bold text-white bg-blue-700 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-blue-600 dark:hover:bg-blue-500 dark:focus:ring-blue-600">
                     <Link
                         to="/login"
                         className="block w-full h-full"
