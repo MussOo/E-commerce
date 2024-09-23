@@ -54,6 +54,19 @@ export default function Navbar() {
                             </li>
                         ) : null
                     }
+                    {
+                        user ? (
+                            <li>
+                                <a href="#" className="block py-2 px-3 md:p-0 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 md:dark:text-white">
+                                <Link 
+                                    to='/profile'
+                                    >
+                                        PROFILE
+                                    </Link>
+                                </a>
+                            </li>
+                        ) : null
+                    }
                     
                 </ul>
             </div>

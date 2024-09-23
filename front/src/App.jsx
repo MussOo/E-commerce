@@ -11,6 +11,7 @@ import EditProduct from "./components/products/editProduct";
 import Cart from './components/cart/Cart';
 import ListCategory from "./components/category/ListCategory";
 import EditCategory from "./components/category/editCategory";
+import Profile from "./components/Profile";
 export default function App() {
 
 
@@ -67,6 +68,10 @@ export default function App() {
       path: "cart",
       element: <MainLayout><Cart/></MainLayout>,
 
+    },
+    {
+      path: "profile",
+      element: <MainLayout><Profile/></MainLayout>,
     }
   ]);
 
