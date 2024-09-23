@@ -5,10 +5,9 @@ import { useContext } from "react";
 
 
 export default function Navbar() {
-    const { user, context_login , context_logout } = useContext(AuthContext);
+    const { user, context_logout } = useContext(AuthContext);
     const { cart } = useContext(CartContext);
 
-    console.log('user', user);
     return (
         <nav className="w-11/12 rounded-lg border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
