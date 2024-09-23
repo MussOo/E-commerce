@@ -23,6 +23,7 @@ module.exports.login = async (req, res) => {
               expiresIn: "24h",
             }),
             user: {
+              _id   : user._id,
               name: user.name,
               email: user.email,
               role: user.role,
