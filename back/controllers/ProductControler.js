@@ -68,19 +68,16 @@ module.exports.delete = async (req, res) => {
 
 module.exports.stock = async (req, res) => {
   let data = req.body;
-
-
-  let product = Product.findOne({ _id: req.params.id }, {}, function (err, docs) {
-    res.send(docs.stock);
-  });
+  let product = await Product.findOne({ _id: req.params.id })
+  .exec();
 
   if (!product){
-    res.status(400).json({ error: "Product not found !" });
+    return res.status(200).json({ error: "Product not found !", error_code: 601, real_qty: 0 });
   }
 
   if (product.stock < data.stock) {
-    res.status(400).json({ error: "Stock not available !" });
+    return res.status(200).json({ error: "Stock not available !", error_code: 602, real_qty: product.stock });
   }
 
-  res.status(200).json({ message: "Stock available !" });
+  return res.status(200).json({ message: "Stock available !", real_qty: product.stock   });
 }
