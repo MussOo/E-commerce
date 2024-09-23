@@ -41,6 +41,20 @@ export default function Navbar() {
                             </Link>
                         </a>
                     </li>
+                    {
+                        user && user.role === 'admin' ? (
+                            <li>
+                                <a href="#" className="block py-2 px-3 md:p-0 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200 md:dark:text-white">
+                                <Link 
+                                    to='/categorys'
+                                    >
+                                        CATEGORY
+                                    </Link>
+                                </a>
+                            </li>
+                        ) : null
+                    }
+                    
                 </ul>
             </div>
             <div className="flex flex-row space-x-4 items-center">

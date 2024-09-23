@@ -40,7 +40,7 @@ export async function create(name, description){
       timer: 1500,
     })
     .then (() => {
-      window.location.href = "/";
+      window.location.href = "/categorys";
     });
 
     })
@@ -65,18 +65,7 @@ export async function getAll() {
 
 export async function getOne(id) {
   return await axios
-    .get(`http://localhost:3000/category/${id}`)
-    .then((response) => {
-      return response.data;
-    })
-    .catch(() => {
-      Swal.fire({
-        title: "Erreur",
-        text: "Une erreur est survenue",
-        icon: "error",
-        timer: 2000,
-      });
-    });
+    .get(`http://localhost:3000/category/${id}`);
 }
 
 export async function update(id, name, description) {
@@ -108,7 +97,7 @@ export async function update(id, name, description) {
         timer: 1500,
       })
       .then(() => {
-        window.location.href = "/";
+        window.location.href = "/categorys";
       });
     })
     .catch(() => {
@@ -148,7 +137,7 @@ export async function remove(id) {
         timer: 1500,
       })
       .then(() => {
-        window.location.href = "/";
+        window.location.href = "/categorys";
       });
     })
     .catch(() => {

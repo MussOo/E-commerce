@@ -9,6 +9,8 @@ import NewCategory from "./components/category/newCategory";
 import ListProduct from "./components/products/listProduct";
 import EditProduct from "./components/products/editProduct";
 import Cart from './components/cart/Cart';
+import ListCategory from "./components/category/ListCategory";
+import EditCategory from "./components/category/editCategory";
 export default function App() {
 
 
@@ -48,8 +50,16 @@ export default function App() {
       path : "categorys",
       children : [
         {
+          path: "",
+          element: <MainLayout><ListCategory/></MainLayout>,
+        },
+        {
           path: 'add',
           element: <MainLayout><NewCategory/></MainLayout>
+        },
+        {
+          path: 'edit/:id',
+          element: <MainLayout><EditCategory/></MainLayout>
         }
       ]
     },

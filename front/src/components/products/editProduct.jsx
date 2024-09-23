@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { getAll } from "../../api/category"
-import { create, getOne, update } from "../../api/product"
+import { getOne, update } from "../../api/product"
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
 
 
 
 export default function EditProduct() {
-    const queryParameters = new URLSearchParams(window.location.search);
-    const id = queryParameters.get('id');
+    const { id } = useParams();
     
     const [product, setProduct] = useState({});
     const [categories_options, setCategories_options] = useState([]);
