@@ -32,6 +32,12 @@ const CartProvider = ({ children }) => {
       }
 
     };
+    
+
+    const context_removeAll = () => {
+        setCart([]);
+        localStorage.setItem('cart', JSON.stringify([]));
+    }
 
     // remove from cart
     const context_removeFromCart = (product) => {
@@ -56,7 +62,7 @@ const CartProvider = ({ children }) => {
         localStorage.setItem('cart', JSON.stringify(newCart));
     }
   return (
-    <CartContext.Provider value={{ cart, context_addToCart, context_removeFromCart, context_addOne, context_removeOne }}>
+    <CartContext.Provider value={{ cart, context_addToCart, context_removeFromCart, context_addOne, context_removeOne, context_removeAll }}>
       {children}
     </CartContext.Provider>
   );

@@ -148,3 +148,18 @@ export async function search(name) {
         });
     });
 }
+
+
+export async function check_stock(id, stock){
+    return await axios
+    .post(`http://localhost:3000/product/stock/${id}`,
+        {
+            stock: stock,
+        },
+        {
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+    );
+}
