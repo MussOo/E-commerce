@@ -20,3 +20,15 @@ export function login(email, password) {
       }
     );
 }
+
+
+export function register(name, email, password, role) {
+  return axios
+    .post("http://localhost:3000/register",
+      {
+        name: name,
+        email: email,
+        password: password,
+        role: role,
+      });
+}

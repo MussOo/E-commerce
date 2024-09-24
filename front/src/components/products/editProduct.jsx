@@ -3,10 +3,12 @@ import { getAll } from "../../api/category"
 import { getOne, update } from "../../api/product"
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
+import IsAdmin from "../../hooks/IsAdmin";
 
 
 
 export default function EditProduct() {
+    IsAdmin();
     const { id } = useParams();
     
     const [product, setProduct] = useState({});

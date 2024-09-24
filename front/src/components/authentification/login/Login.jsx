@@ -50,12 +50,11 @@ export default function Login() {
       <div className="container_login text-black">
         <h3>Login</h3>
         <Form method="post" onSubmit={Submit}>
-          <input type="text" name="email" value={'admin@admin.com'} placeholder="email" />
-          <input type="password" name="password" value={'admin'} placeholder="password" />
+          <input type="text" name="email" placeholder="email" />
+          <input type="password" name="password" placeholder="password" />
           <button type="submit" className="login_button">
             Login
           </button>
-          <button className="register_button">Register</button>
         </Form>
       </div>
     </div>

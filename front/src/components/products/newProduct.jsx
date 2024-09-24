@@ -2,10 +2,12 @@ import { useEffect, useState } from "react";
 import { getAll } from "../../api/category"
 import { create } from "../../api/product"
 import Swal from "sweetalert2";
+import IsAdmin from "../../hooks/IsAdmin";
 
 
 
 export default function NewProduct() {
+    IsAdmin();
     const [categories_options, setCategories_options] = useState([]);
 
     useEffect(() => {

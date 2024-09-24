@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
 import { getOrders } from "../api/order"
 import CardOrder from "./CardOrder"
-
+import RequireAuth from "../hooks/RequireAuth"
 
 export default function Profile() {
+    RequireAuth();
     const [ orders, setOrders ] = useState([])
 
     useEffect(() => {

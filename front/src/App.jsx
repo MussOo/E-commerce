@@ -2,7 +2,7 @@ import "./App.scss";
 import Accueil from "./components/global/accueil/Accueil";
 import Login from "./components/authentification/login/Login";
 import Register from "./components/authentification/register/Register";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Router, Route, Routes, RouterProvider } from "react-router-dom";
 import MainLayout from "./components/MainLayout";
 import NewProduct from "./components/products/newProduct";
 import ShowProduct from "./components/products/ShowProduct";
@@ -25,7 +25,7 @@ export default function App() {
     },
     {
       path: "register",
-      element: <Register />,
+      element: <Register />
     },
     {
       path: "login",
@@ -76,7 +76,7 @@ export default function App() {
     },
     {
       path: "profile",
-      element: <MainLayout><Profile/></MainLayout>,
+      element: <MainLayout><Profile/></MainLayout>
     }
   ]);
 

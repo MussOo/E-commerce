@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react"
 import { getAll, remove } from "../../api/category"
 import { AuthContext } from '../../context/contextAuth';
 import CardCategory from "../CardCategory";
+import IsAdmin from "../../hooks/IsAdmin";
 
 
 export default function ListCategory() {
+    IsAdmin();
     const { user } = useContext(AuthContext);
     
     const [categorys, setCategorys] = useState([])

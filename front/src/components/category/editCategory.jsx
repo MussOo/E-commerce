@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { getOne, update } from "../../api/category"
 import Swal from "sweetalert2";
 import { useParams } from "react-router-dom";
+import IsAdmin from "../../hooks/IsAdmin";
 
 export default function EditCategory() {
+    IsAdmin();
     const { id } = useParams();
     const [category, setCategory] = useState({});
 

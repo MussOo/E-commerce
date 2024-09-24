@@ -1,8 +1,9 @@
 import { create } from "../../api/category";
+import IsAdmin from "../../hooks/IsAdmin";
 
 
 export default function NewCategory(){
-
+    IsAdmin();
     const SendCategory = (e) => {
         e.preventDefault();
         const name = e.target.name.value;
