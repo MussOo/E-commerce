@@ -5,6 +5,7 @@ import Register from "./components/authentification/register/Register";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./components/MainLayout";
 import NewProduct from "./components/products/newProduct";
+import ShowProduct from "./components/products/ShowProduct";
 import NewCategory from "./components/category/newCategory";
 import ListProduct from "./components/products/listProduct";
 import EditProduct from "./components/products/editProduct";
@@ -44,6 +45,10 @@ export default function App() {
         {
           path: 'edit/:id',
           element: <MainLayout><EditProduct/></MainLayout>
+        },
+        {
+          path: ':id',
+          element: <MainLayout><ShowProduct/></MainLayout>
         }
       ]
     },

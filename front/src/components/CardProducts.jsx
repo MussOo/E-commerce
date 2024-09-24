@@ -1,20 +1,22 @@
 import { useContext } from "react";
 import { remove } from "../api/product";
 import { CartContext } from "../context/contextCart";
+import { AuthContext } from "../context/contextAuth";
 
 
 export default function CardProducts({ product }) {
+  const { user } = useContext(AuthContext);
   const { cart, context_addToCart } = useContext(CartContext);
 
     return (
       <div className="flex flex-col justify- rounded-lg border w-1/4 border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
       <div className="h-50">
-        <a href="#">
+        <a href={`/products/${product._id}`}>
         <img className="mx-auto h-full dark:hidden" src={product.images ? product.images[0] : "https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"} alt="" />
         </a>
       </div>
       <div className="pt-4">
-      <a href="#" className="text-lg font-semibold leading-tight text-gray-900 hover:underline dark:text-white h-12 text-overflow overflow-ellipsis h-[20px]">
+      <a href={`/products/${product._id}`} className="text-lg font-semibold leading-tight text-gray-900 dark:text-white h-12 text-overflow overflow-ellipsis h-[20px] hover:underline">
         {product.name}
         </a>
 
@@ -167,25 +169,29 @@ export default function CardProducts({ product }) {
             Add to cart
           </button>
         </div>
-        
-        <div className="flex flex-row justify-end">
-              <a
-              className=" text-white text-sm font-bold py-2 px-4 rounded-lg"
-              onClick={() => {remove(product._id)}}
-              >
-                <img src="https://img.icons8.com/?size=25&id=102350&format=png&color=000000" alt="" />
-              </a>
+        {
+          user && user.role === 'admin' ? (
+            <div className="flex flex-row justify-end">
+                  <a
+                  className=" text-white text-sm font-bold py-2 px-4 rounded-lg"
+                  onClick={() => {remove(product._id)}}
+                  >
+                    <img src="https://img.icons8.com/?size=25&id=102350&format=png&color=000000" alt="" />
+                  </a>
 
-          <button 
-              className=" text-white text-sm font-bold  rounded-lg"
-              >
-              <a
-              href={`/products/edit/${product._id}`}
-              >
-                <img src="https://img.icons8.com/?size=25&id=71201&format=png&color=000000" alt="" />
-              </a>
-          </button>
-        </div>
+              <button 
+                  className=" text-white text-sm font-bold  rounded-lg"
+                  >
+                  <a
+                  href={`/products/edit/${product._id}`}
+                  >
+                    <img src="https://img.icons8.com/?size=25&id=71201&format=png&color=000000" alt="" />
+                  </a>
+              </button>
+            </div>
+          )
+          : null
+        }
       </div>
     </div>
     );
