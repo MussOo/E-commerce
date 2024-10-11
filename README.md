@@ -1,5 +1,12 @@
 # E-Commerce Website
 
+
+## Technologie
+
+- Back-end : Node.js (Express.js / Mongoose)
+- Front-end : React.js (Vite.js)
+- Base de donnée : MongoDB
+
 ## Description
 
 Ce projet est une application web e-commerce complète développée avec **Node.js** et **Express.js** pour le back-end,**MongoDB** pour la base de données et React JS (vite js) pour le front. L'objectif de cette application est de fournir une plateforme de commerce en ligne où les utilisateurs peuvent parcourir des produits, les ajouter à un panier, finaliser leurs achats, et suivre l'état de leurs commandes. Ce projet a été conçu pour démontrer mes compétences en développement web full-stack, avec un accent sur la gestion des utilisateurs, la sécurité des transactions, et l'interactivité du site.
