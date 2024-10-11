@@ -1,11 +1,14 @@
 # E-Commerce Website
 
-
 ## Technologie
 
 - Back-end : Node.js (Express.js / Mongoose)
 - Front-end : React.js (Vite.js)
 - Base de donnée : MongoDB
+
+
+![image](https://github.com/user-attachments/assets/9c2cffc0-59d9-4225-887e-f29726232466)
+
 
 ## Description
 
@@ -20,23 +23,27 @@ Ce projet est une application web e-commerce complète développée avec **Node.
 
 ### Catalogue de Produits
 
+![image](https://github.com/user-attachments/assets/269ea48d-ffd2-45bf-9498-40bd484140b5)
 - **Affichage des produits** : Les utilisateurs peuvent voir une liste de produits disponibles avec images, descriptions et prix.
 - **Recherche et filtres** : Les produits peuvent être recherchés par nom ou filtrés par catégories et prix.
 - **Page produit** : Chaque produit dispose d'une page dédiée avec plus de détails, des images supplémentaires, et la possibilité de l'ajouter au panier.
 
 ### Panier d'Achat
 
+![image](https://github.com/user-attachments/assets/8d280294-6e0e-4abd-8365-3b908a448d6d)
 - **Gestion du panier** : Les utilisateurs peuvent ajouter des produits au panier, modifier les quantités ou retirer des articles.
 - **Gestion du Stock** : Vérification dynamique du stock disponible pour mettre en rupture ou non un produit
 - **Mise à jour du total** : Le prix total du panier se met à jour dynamiquement en fonction des articles ajoutés.
 
 ### Commandes et Paiement
+![image](https://github.com/user-attachments/assets/fe00f305-bf99-4c5a-b235-314e57add336)
 
 - **Finalisation de la commande** : Les utilisateurs peuvent passer commande avec leurs articles choisis et une adresse de livraison.
 - **Intégration de paiement sécurisé** : Paiement via une API (comme Stripe ou PayPal) pour assurer la sécurité des transactions.
 - **Suivi des commandes** : Les utilisateurs peuvent voir l'état de leurs commandes (en attente, expédiée, livrée).
 
 ### Administration
+![image](https://github.com/user-attachments/assets/a5f16d11-7b4e-4d9c-be9d-b84b023b93a3)
 
 - **Gestion des produits** : Les administrateurs peuvent ajouter, modifier ou supprimer des produits via une interface d'administration dédiée.
 
